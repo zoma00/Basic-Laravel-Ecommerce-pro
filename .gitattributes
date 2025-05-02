@@ -1,14 +1,24 @@
-# Exclude dependencies
-vendor/* linguist-vendored
-node_modules/* linguist-vendored
+# Exclude dependencies (already correct)
+/vendor/**/* linguist-vendored
+/node_modules/**/* linguist-vendored
 
-# Treat Blade templates as PHP
+# Blade → PHP classification (already correct)
 *.blade.php linguist-language=PHP
 
-# Ignore compiled assets
-public/css/*.css linguist-generated
-public/js/*.js linguist-generated
+# Ignore ALL built assets (expanded)
+/public/css/**/*.css linguist-generated
+/public/js/**/*.js linguist-generated
+/resources/css/**/*.css linguist-generated  # Add this if using Laravel Mix
 
-# Exclude logs/configs
+# Hide env/logs (already correct)
 *.log linguist-documentation
-.env linguist-documentation
+.env* linguist-documentation
+
+# ░▒▓ New Critical Additions ▓▒░
+# Force detect PHP as primary
+*.php linguist-language=PHP
+composer.json linguist-language=PHP
+
+# Exclude test CSS/JS from detection
+/tests/**/*.css linguist-detectable=false
+/tests/**/*.js linguist-detectable=false
