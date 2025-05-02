@@ -15,7 +15,12 @@ RUN apt-get update && apt-get install -y \
     git \
     libzip-dev \
     libpq-dev \
+<<<<<<< HEAD
     mysql-client
+=======
+    default-mysql-client
+
+>>>>>>> e63bf16b655d8cfe99dfe519d5860dff01c0f3ec
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
@@ -34,3 +39,20 @@ EXPOSE 8000
 
 # Run Laravel server
 CMD php artisan serve --host=0.0.0.0 --port=8000
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> e63bf16b655d8cfe99dfe519d5860dff01c0f3ec
