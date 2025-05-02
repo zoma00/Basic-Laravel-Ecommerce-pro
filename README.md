@@ -53,3 +53,11 @@ docker exec app php artisan key:generate
 
 # Run migrations
 docker exec app php artisan migrate
+
+
+
+
+## 🧠 Credits
+
+Created by **Hazem El Batawy** – [zoma0097@gmail.com](mailto:zoma0097@gmail.com)
+
