@@ -56,7 +56,9 @@ docker exec app php artisan migrate
 
 # important Database Note:
 
-The database is ready with tables established and migrated, but no data exists. To add data, use an SQL client (like Dbeaver, Mysql Workbench, etc.) after activating the Docker containers.
+The database is ready with tables established and migrated, but no data exists.
+To add data, use an SQL client (like Dbeaver, Mysql Workbench, etc.)
+After activating the Docker containers.
 ```
 
 
