@@ -54,10 +54,15 @@ docker exec app php artisan key:generate
 # Run migrations
 docker exec app php artisan migrate
 
+# important Database Note:
+
+The database is ready with tables established and migrated, but no data exists. To add data, use an SQL client (like Dbeaver, Mysql Workbench, etc.) after activating the Docker containers.
+```
 
 
 
 ## 🧠 Credits
 
-Created by **Hazem El Batawy** – [zoma0097@gmail.com](mailto:zoma0097@gmail.com)
+Created by **Hazem ElBatawy**
+mailto:zoma0097@gmail.com
 
