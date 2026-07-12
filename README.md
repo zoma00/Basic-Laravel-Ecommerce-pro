@@ -1,3 +1,9 @@
+![Laravel 10](https://img.shields.io/badge/Laravel_10-FF2D20?logo=laravel&logoColor=white)
+![PHP 8](https://img.shields.io/badge/PHP_8-777BB4?logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Blade](https://img.shields.io/badge/Blade-FF2D20?logo=laravel&logoColor=white)
+
 # Laravel E-commerce Admin
 
 Backend and **admin / catalog-management system** for an e-commerce site, built with **Laravel 10**.
