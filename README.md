@@ -1,70 +1,80 @@
-# Basic Laravel Ecommerce Project
+# Laravel E-commerce Admin
 
-<p align="center">
-  <a href="https://laravel.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-  </a>
-</p>
+Backend and **admin / catalog-management system** for an e-commerce site, built with **Laravel 10**.
+It handles the store's catalog and content administration — brands, categories, image galleries,
+homepage sliders, and contact submissions — with authentication via **Laravel Jetstream**, running
+on a **Docker + MySQL** stack.
 
-## 📦 Overview
+> **Scope:** this repository implements the **admin/catalog-management backend** and the site's
+> Blade views. The customer-facing storefront layout is template-based; product cart/checkout is
+> not part of the backend feature set documented below.
 
-This is a basic **Ecommerce website** built with the **Laravel PHP framework**, structured to demonstrate backend development using:
+## Stack
 
-- **PHP (Laravel)** – backend API, routing, controllers, authentication, and database logic.
-- **Docker** – containerized development setup.
-- **MySQL (or SQLite)** – as the database.
-- **Git & GitHub** – for version control and remote collaboration.
+- **Laravel 10 (PHP)** — routing, controllers, Eloquent ORM, validation
+- **Laravel Jetstream** — authentication (login, registration, email verification, 2FA, password management)
+- **MySQL** — database
+- **Docker / Docker Compose** — containerized development environment
+- **Blade** — server-rendered views
 
-It is a great starter template for small-to-medium ecommerce platforms.
+## Features
 
----
+**Catalog & content management (Eloquent CRUD)**
+- **Categories** — create, edit, update, with **soft-delete, restore, and permanent-delete**
+- **Brands** — full create / edit / update / delete
+- **Image galleries** — single and **multi-image** upload management (`Multipic`)
+- **Homepage sliders** — manage the storefront hero carousel
+- **Homepage content** — editable home / about sections
+- **Contact form** — database-backed contact submissions
 
-## 🚀 Features
+**Authentication (Laravel Jetstream)**
+- Registration, login, and email verification
+- Two-factor authentication (2FA)
+- Password change / management
 
-- User registration and login system
-- Product listing and details
-- Shopping cart functionality
-- Order placement
-- Admin dashboard (if implemented)
-- Laravel MVC structure
-- Docker environment for seamless setup
+## Technical highlights
 
----
+- **Soft deletes with restore** on categories — records can be trashed, recovered, or permanently
+  removed (Laravel `SoftDeletes`).
+- **Named, RESTful routes** for every admin action (`all.category`, `store.brand`,
+  `category.restore`, `home.slider`, …).
+- **Image upload handling**, including multi-file galleries.
+- **Containerized** for a reproducible local setup.
 
-## 🐳 Getting Started with Docker
+## Getting started (Docker)
 
 ```bash
-# Clone the repository
-git clone git@github.com:zoma00/Basic-Laravel-Ecommerce-pro.git
+# Clone
+git clone git@github.com:zoma00/laravel-ecommerce-admin.git
+cd laravel-ecommerce-admin
 
-cd Basic-Laravel-Ecommerce-pro
-
-# Copy environment file
+# Environment
 cp .env.example .env
 
-# Start Docker containers
+# Start containers
 docker-compose up -d
 
-# Install dependencies
+# Install dependencies, generate app key, run migrations
 docker exec app composer install
-
-# Generate app key
 docker exec app php artisan key:generate
-
-# Run migrations
 docker exec app php artisan migrate
-
-# important Database Note:
-
-The database is ready with tables established and migrated, but no data exists.
-To add data, use an SQL client (like Dbeaver, Mysql Workbench, etc.)
-After activating the Docker containers.
 ```
 
+**Database note:** migrations create the schema (tables) but no seed data. Add records through the
+admin UI, or via an SQL client (DBeaver, MySQL Workbench) once the containers are running.
 
+## Project structure
 
-## 🧠 Credits
+```
+app/
+  Models/             Brand, Category, Slider, Multipic, HomeAbout, Contact, User
+  Http/Controllers/   Brand, Category, Home, About, Contact, ChangePass
+database/migrations/  database schema
+resources/views/      Blade templates
+routes/web.php        admin + page routes
+docker-compose.yml    Docker environment
+```
 
-Created by **Hazem ElBatawy**
-mailto:zoma0097@gmail.com
+## Author
 
+Hazem Elbatawy — [contact@foliovistabooks.com](mailto:contact@foliovistabooks.com)
