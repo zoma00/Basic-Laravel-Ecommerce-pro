@@ -1,61 +1,73 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Services\ImageService; // Add this at the top
 
-use Illuminate\Http\Request;
+// Add this at the top
+
 use App\Models\HomeAbout;
 use App\Models\Multipic;
-
-use \Illuminate\Support\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class AboutController extends Controller
 {
-    public function HomeAbout (){
-        $homeabout = HomeAbout ::latest()->get();
+    public function HomeAbout()
+    {
+        $homeabout = HomeAbout::latest()->get();
+
         return view('admin.home.index', compact('homeabout'));
     }
-    public function AddAbout(){
+
+    public function AddAbout()
+    {
         return view('admin.home.create');
     }
-    public function StoreAbout(Request $request){
-        HomeAbout::insert ([
+
+    public function StoreAbout(Request $request)
+    {
+        HomeAbout::insert([
             'title' => $request->title,
             'short_dis' => $request->short_dis,
             'long_dis' => $request->long_dis,
-            'created_at'=>Carbon::now()
-        
-    ]);
-    return Redirect()->route('home.about')->with('success','About Inserted Successfully');
+            'created_at' => Carbon::now(),
+
+        ]);
+
+        return Redirect()->route('home.about')->with('success', 'About Inserted Successfully');
     }
 
-
-    public function EditAbout($id){
+    public function EditAbout($id)
+    {
         $homeabout = HomeAbout::find($id);
-        return view('admin.home.edit',compact('homeabout'));
+
+        return view('admin.home.edit', compact('homeabout'));
     }
 
-    public function UpdateAbout(Request $request,$id){
-        $udpate = HomeAbout::find($id)->update ([
+    public function UpdateAbout(Request $request, $id)
+    {
+        $udpate = HomeAbout::find($id)->update([
             'title' => $request->title,
             'short_dis' => $request->short_dis,
             'long_dis' => $request->long_dis,
-        
-    ]);
-            return Redirect()->route('home.about')->with('success','About Updated Successfully');
 
+        ]);
+
+        return Redirect()->route('home.about')->with('success', 'About Updated Successfully');
 
     }
 
-    public function DeleteAbout($id) {
+    public function DeleteAbout($id)
+    {
         $delete = HomeAbout::find($id)->Delete();
-        return Redirect()->back()->with('success','About Deleted Successfully');
+
+        return Redirect()->back()->with('success', 'About Deleted Successfully');
 
     }
 
-    public function portfolio(){
+    public function portfolio()
+    {
         $images = Multipic::all();
 
-        return view('pages.portfolio',compact('images'));
+        return view('pages.portfolio', compact('images'));
     }
 }

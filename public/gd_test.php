@@ -1,4 +1,5 @@
 <?php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -9,7 +10,6 @@ imagepng($im, $image_path);
 imagedestroy($im);
 
 // Display the created image
-echo '<img src="' . $image_path . '" alt="Test Image">';
+echo '<img src="'.$image_path.'" alt="Test Image">';
 
-echo "Test image created!";
-?>
+echo 'Test image created!';

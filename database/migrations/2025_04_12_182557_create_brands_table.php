@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('brand_name');
             $table->string('brand_image');
-            $table->string('deleted_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -27,6 +27,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('brands');
     }
-    
 };
-

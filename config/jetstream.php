@@ -8,14 +8,14 @@ return [
     'middleware' => ['web'],
     'auth_session' => AuthenticateSession::class,
     'guard' => 'web',
-    
+
     // Jetstream-specific features
     'features' => [
         Features::profilePhotos(),    // Profile photo uploads
         Features::accountDeletion(),  // User self-account removal
-        //Features::api(),
+        // Features::api(),
     ],  // <-- COMMA ADDED HERE
-    
+
     'profile_photo_disk' => 'public',
     'middleware_group' => 'web',
     'password_reset' => [

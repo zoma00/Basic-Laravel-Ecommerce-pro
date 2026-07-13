@@ -13,7 +13,7 @@ class AddDeletedAtToBrandsTable extends Migration
     {
         Schema::table('brands', function (Blueprint $table) {
             // Check if the column does not exist before adding it
-            if (!Schema::hasColumn('brands', 'deleted_at')) {
+            if (! Schema::hasColumn('brands', 'deleted_at')) {
                 $table->timestamp('deleted_at')->nullable();
             }
         });
