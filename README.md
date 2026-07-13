@@ -1,3 +1,4 @@
+[![CI](https://github.com/zoma00/laravel-ecommerce-admin/actions/workflows/ci.yml/badge.svg)](https://github.com/zoma00/laravel-ecommerce-admin/actions/workflows/ci.yml)
 ![Laravel 10](https://img.shields.io/badge/Laravel_10-FF2D20?logo=laravel&logoColor=white)
 ![PHP 8](https://img.shields.io/badge/PHP_8-777BB4?logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
